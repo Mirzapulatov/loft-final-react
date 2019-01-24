@@ -1,0 +1,8 @@
+.setAddres > div {
+  position: absolute;
+  z-index: 2;
+  top: 100px;
+  left: 30px;
+  width: 400px;
+  padding: 30px;
+}
