@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import mapboxgl from "mapbox-gl";
-import { getAddressList } from "../../actions/map";
+import { getAddressList, getMapCoordinates } from "../../modules/Map";
 import Order from "../Order";
 import "./Map.css";
 
-const mapStateToProps = state => ({ map: state.map });
+const mapStateToProps = state => ({ coordinates: getMapCoordinates(state) });
 const mapDispatchToProps = { getAddressList };
 
 class Map extends Component {
@@ -27,12 +27,9 @@ class Map extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const {
-      map: { coordinates }
-    } = this.props;
+    const { coordinates } = this.props;
     if (
-      JSON.stringify(coordinates) !==
-        JSON.stringify(prevProps.map.coordinates) &&
+      JSON.stringify(coordinates) !== JSON.stringify(prevProps.coordinates) &&
       coordinates.length
     ) {
       this.map.flyTo({

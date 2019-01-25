@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { getIsAuthorized } from "../../../../modules/Auth";
 
-const mapStateToProps = state => ({ isAuthorized: state.user.isAuthorized });
+const mapStateToProps = state => ({ isAuthorized: getIsAuthorized(state) });
 
 class PrivateRoute extends Component {
   render() {

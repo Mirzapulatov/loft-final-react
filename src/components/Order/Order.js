@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createOrder, cancelOrder } from "../../actions/order";
+import { createOrder, cancelOrder } from "../../modules/Order";
+
 import SetAddress from "./SetAddress";
 import OrderSuccess from "./OrderSuccess";
 import EmptyInformationProfile from "../User/Profile/EmptyInformationProfile";
 
 import "./Order.css";
 
-const mapStateToProps = state => ({ ...state });
+const mapStateToProps = state => {
+  const { user, order, map } = state;
+  return { user, order, map };
+};
 const mapDispatchToProps = { createOrder, cancelOrder };
 
 class Order extends Component {
   createOrder = (fromWhere, toWhere) => {
-    this.props.createOrder({
+    const { createOrder } = this.props;
+    createOrder({
       fromWhere: fromWhere,
       toWhere: toWhere
     });

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { logout } from "../../../../actions/auth";
+import { logout, getIsAuthorized } from "../../../../modules/Auth";
 
 import MenuAppBar from "./MenuAppBar";
 
-const mapStateToProps = state => ({ isAuthorized: state.user.isAuthorized });
+const mapStateToProps = state => ({ isAuthorized: getIsAuthorized(state) });
 const mapDispatchToProps = { logout };
 
 class Header extends Component {

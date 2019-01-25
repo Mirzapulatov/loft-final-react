@@ -1,7 +1,7 @@
 import { handleActions } from "redux-actions";
 import { combineReducers } from "redux";
 
-import { createOrder, createOrderSuccess, cancelOrder } from "../actions/order";
+import { createOrder, createOrderSuccess, cancelOrder } from "./actions";
 
 const status = handleActions(
   {

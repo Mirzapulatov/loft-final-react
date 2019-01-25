@@ -7,7 +7,7 @@ import {
   getRouteFailureRequest,
   clearRoute,
   getAddressListSuccess
-} from "../actions/map";
+} from "./actions";
 
 const coordinates = handleActions(
   {
@@ -25,4 +25,5 @@ const routeVarians = handleActions(
   },
   []
 );
+
 export default combineReducers({ coordinates, routeVarians });

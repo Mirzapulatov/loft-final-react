@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { loginRequest } from "../../../actions/auth";
+import { loginRequest, getIsAuthorized } from "../../../modules/Auth";
+
 import { Typography, Paper, Button } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { Form, Field } from "react-final-form";
@@ -9,7 +10,7 @@ import { input } from "../../UI/From/Fields";
 
 import "./Login.css";
 
-const mapStateToProps = state => ({ isAuthorized: state.user.isAuthorized });
+const mapStateToProps = state => ({ isAuthorized: getIsAuthorized(state) });
 const mapDispatchToProps = { loginRequest };
 
 const validate = values => {

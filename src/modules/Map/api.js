@@ -1,4 +1,4 @@
-import urls from "../constants/backend";
+import urls from "../../constants/backend";
 
 export const route = (fromWhere, toWhere) =>
   fetch(

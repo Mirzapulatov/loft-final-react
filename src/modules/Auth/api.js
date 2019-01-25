@@ -1,4 +1,4 @@
-import urls from "../constants/backend";
+import urls from "../../constants/backend";
 
 export const login = (username, password) =>
   fetch(

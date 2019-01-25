@@ -6,9 +6,7 @@ import {
   loginSuccessRequest,
   loginFailureRequest,
   logout
-} from "../actions/auth";
-
-import { editProfile } from "../actions/profile";
+} from "./actions";
 
 const isAuthorized = handleActions(
   {
@@ -20,11 +18,4 @@ const isAuthorized = handleActions(
   JSON.parse(window.localStorage.getItem("isAuthorized"))
 );
 
-const userInfo = handleActions(
-  {
-    [editProfile]: (_state, action) => action.payload
-  },
-  JSON.parse(window.localStorage.getItem("userInfo"))
-);
-
-export default combineReducers({ isAuthorized, userInfo });
+export default combineReducers({ isAuthorized });

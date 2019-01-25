@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { editProfile } from "../../../../actions/profile";
+import { editProfile } from "../../../../modules/User";
 import { Button } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { Form, Field } from "react-final-form";
